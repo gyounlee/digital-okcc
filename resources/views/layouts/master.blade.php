@@ -20,29 +20,33 @@
         <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.12.1/bootstrap-table.min.css">
         {{-- Font awesome CSS --}}
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+        {{-- toastr is a Javascript library for non-blocking notifications. jQuery is required. https://github.com/CodeSeven/toastr --}}
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
         {{-- Custom styles for this template --}}
         <link href="{{ asset('css/okcc.css') }}" rel="stylesheet">
         <link href="https://cdn.jsdelivr.net/npm/gijgo@1.9.6/css/gijgo.min.css" rel="stylesheet" type="text/css" />
-        
-
+        <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700,800|Roboto:300,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">       
         {{-- for additional styles --}}
         @yield('styles')
     </head>
     <body>
 
         @include('layouts.header')
-        @include('layouts.side')
+        @yield('side')
         @include('layouts.footer')
 
         {{-- Basic Scripts --}}
-        <script src="js/lang.js"></script>
+        <script src="{{ asset('js/lang.js') }}"></script>
         <script src="{{ asset('js/app.js') }}"></script>
+        <script src="{{ asset('js/jquery.blockUI.js') }}"></script>
         {{-- Latest compiled and minified JavaScript, Locales for Bootstrap Table --}}
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.12.1/bootstrap-table.min.js"></script>
         {{-- jQuery idle timer --}}
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-idletimer/1.0.0/idle-timer.min.js"></script>
         {{-- toastr is a Javascript library for non-blocking notifications. jQuery is required. https://github.com/CodeSeven/toastr --}}
         <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+        {{-- to implement make display order --}}
+        <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js" integrity="sha256-eGE6blurk5sHj+rmkfsGYeKyZx3M4bG+ZlFyA7Kns7E=" crossorigin="anonymous"></script>
         {{-- for additional scripts --}}
         <script src="{{ asset('js/okcc.js') }}"></script>
         @yield('scripts')
@@ -61,6 +65,6 @@
             var USER_ROLES = '';
             @endauth
         </script>
-        
+        @yield('masterScripts')  
     </body>
 </html>
